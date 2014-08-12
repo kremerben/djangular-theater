@@ -1,0 +1,31 @@
+{% extends 'base_template.html' %}
+{% load staticfiles %}
+{% block head %}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="{% static 'js/angular-resource.js' %}"></script>
+	<script src="{% static 'js/angular-route.js' %}"></script>
+	<script src="{% static 'js/app.js' %}"></script>
+	<script src="{% static 'js/controller.js' %}"></script>
+	<script src="{% static 'js/service.js' %}"></script>
+    <script src="{% static "js/controllers/indexController.js" %}"></script>
+    <script src="{% static "js/controllers/inTheaterController.js" %}"></script>
+    <script src="{% static "js/controllers/upcomingController.js" %}"></script>
+    <script src="{% static "js/controllers/similarController.js" %}"></script>
+    <script src="{% static "js/controllers/searchController.js" %}"></script>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% verbatim %}
+        <div ng-app="theaterPlus">
+            <h2 class="title">Welcome to our Angular Movie Site!</h2>
+            <div>
+                <a href="#/">Home</a> | <a href="#/in_theaters">Now Playing</a> | <a href="#/upcoming">Coming Soon</a>
+                | <a href="#/similar">Similar</a> | <a href="#/search">Search</a>
+            </div>
+            <div ng-view></div>
+        </div>
+        {% endverbatim %}
+    </div>
+{% endblock content %}

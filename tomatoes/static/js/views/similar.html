@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-lg-12">
+        <input type="text" ng-model="similarSearch">
+        <a ng-click="showSimilar();" class="btn btn-primary" href="#">Show Similar Movies <span class="glyphicon glyphicon-chevron-left"></span></a>
+    </div><br><br>
+</div>
+<div class="row"  ng-show="showSimilarResults">
+    <div ng-repeat="movie in similarMovies track by $index">
+        <div class="col-xs-12 col-sm-6 col-md-3 movieListing" ng-click="moreInfo($index);" >
+                <img class="img-responsive" src="{{ movie.posters.detailed.replace('tmb.jpg', 'det.jpg') }}"< alt="">
+            <h3>{{ movie.title }}</h3>
+        </div>
+        <div class="col-sm-12 col-md-6 movieListing" ng-show="movie.showInfo">
+            <h4>{{ movie.release_dates.theater }}</h4>
+            <p class="small">{{ movie.synopsis }}</p>
+            <a ng-click="hideInfo($index);" class="btn btn-primary" href="#">Hide Info <span class="glyphicon glyphicon-chevron-left"></span></a>
+        </div>
+    </div>
+</div>

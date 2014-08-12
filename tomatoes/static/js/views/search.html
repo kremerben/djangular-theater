@@ -1,0 +1,22 @@
+<h1>search</h1>
+
+	<div class="row">
+	    <div class="col-lg-12">
+	        <input type="text" ng-model="movieSearch">
+			<a class="btn btn-primary" ng-click='searchMovies();' > Search Movies  </a>
+        </div>
+    </div>
+	<div class="row"  ng-show="showResults">
+		<div ng-repeat="movie in movies | filter:quickquery track by $index">
+			<div class="col-xs-12 col-sm-6 col-md-3 movieListing" ng-click="moreInfo(movies.indexOf(movie));" >
+		            <img class="img-responsive" src="{{ movie.posters.detailed.replace('tmb.jpg', 'det.jpg') }}"< alt="">
+		        <h3>{{ movie.title }}</h3>
+		    </div>
+		    <div class="col-sm-12 col-md-6 movieListing" ng-show="movie.showInfo">
+		        <h4>{{ movie.release_dates.theater }}</h4>
+		        <p class="small">{{ movie.synopsis }}</p>
+		        <a ng-click="hideInfo(movies.indexOf(movie));" class="btn btn-primary" >Hide Info <span class="glyphicon glyphicon-chevron-left"></span></a>
+		        <a ng-click="showSimilar(movies.indexOf(movie));" class="btn btn-primary" >Show Similar Movies <span class="glyphicon glyphicon-chevron-left"></span></a>
+		    </div>
+		</div>
+	</div>

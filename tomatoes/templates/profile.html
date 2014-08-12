@@ -1,0 +1,17 @@
+{% extends 'base_template.html' %}
+{% block content %}
+
+<h1>Feedr!</h1>
+<h1>Profile Page!</h1>
+
+
+    <div><img src="{{ profile_pic.url }}">
+    <br><br>{{ user.education }}
+    <div>Hometown: {{ hometown.name }}</div>
+    <div>Full Name: {{ name }}</div>
+    <div>Favorite Teams: {% for team in favorite_athletes %}<br>{{ team.name }} {% endfor %}</div>
+    <div>Photos: {% for photo in fb_photos %}{{ photo.url }} {% endfor %}</div>
+    <div>Photos: {% for photo in ig_photos %}{{ photo.url }} {% endfor %}</div>
+</div>
+
+{% endblock content %}
